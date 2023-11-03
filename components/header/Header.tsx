@@ -49,6 +49,14 @@ export interface Props {
   /** @title Logo */
   logo?: { src: ImageWidget; alt: string };
   irParaOSite: string;
+    /**
+   * @format color
+   */
+    backgroundColor: string;
+    /**
+     * @format color
+     */
+    textColor: string;
 }
 
 function Header({
@@ -59,6 +67,8 @@ function Header({
   suggestions,
   logo,
   irParaOSite,
+  backgroundColor,
+  textColor,
 }: Props) {
   const platform = usePlatform();
   const searchbar = { ..._searchbar, products, suggestions };
@@ -72,9 +82,9 @@ function Header({
           platform={platform}
           irParaOSite={irParaOSite}
         >
-          <div class="bg-base-100 fixed w-full z-50">
+          <div class="bg-base-100 fixed w-full z-50" style={{ backgroundColor, color: textColor }}>
             <Alert alerts={alerts} />
-            <Navbar items={navItems} searchbar={searchbar} logo={logo} irParaOSite={irParaOSite} />
+            <Navbar items={navItems} searchbar={searchbar} logo={logo} irParaOSite={irParaOSite} backgroundColor={backgroundColor} textColor={textColor}/>
           </div>
         </Drawers>
       </header>

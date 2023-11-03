@@ -13,11 +13,12 @@ import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
 import GradientButton from "$store/components/LandingPage/GradientButton.tsx";
 
-function Navbar({ items, searchbar, logo, irParaOSite }: {
+function Navbar({ items, searchbar, logo, irParaOSite, backgroundColor }: {
   items: INavItem[];
   searchbar: SearchbarProps;
   logo?: { src: string; alt: string };
   irParaOSite: string;
+  backgroundColor: string;
 }) {
   const platform = usePlatform();
 
@@ -64,7 +65,7 @@ function Navbar({ items, searchbar, logo, irParaOSite }: {
         <div class="flex-auto flex justify-end">
           {items.map((item) => <NavItem item={item} />)}
           <div>
-            <GradientButton text="IR PARA O SITE" href={irParaOSite} />
+            <GradientButton text="IR PARA O SITE" href={irParaOSite} backgroundColor={backgroundColor} />
           </div>
           <div className="ml-4 pt-2">
             {platform === "vtex" && <CartButtonVTEX />}
